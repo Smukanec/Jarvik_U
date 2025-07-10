@@ -236,7 +236,7 @@ new helper script or manually:
 # automatically stops any previous Flask instance
 bash start_flask.sh
 # or manually
-source venv/bin/activate && python main.py
+source venv/bin/activate && python3 main.py
 # or using the alias
 jarvik-flask
 ```
@@ -401,7 +401,7 @@ A minimal configuration might look like:
 Generate the `password_hash` value with:
 
 ```bash
-python -c "import auth; print(auth.hash_password('your_password'))"
+python3 -c "import auth; print(auth.hash_password('your_password'))"
 ```
 
 ### Adding users via helper script
@@ -412,13 +412,13 @@ the helper as a module from the repository root so Python can locate
 `auth.py`:
 
 ```bash
-python -m tools.create_user --nick bob --password pw
+python3 -m tools.create_user --nick bob --password pw
 ```
 
 For example, to create a user `alice` with password `SecretPass123` run:
 
 ```bash
-python -m tools.create_user --nick alice --password SecretPass123
+python3 -m tools.create_user --nick alice --password SecretPass123
 ```
 
 The repository also includes a `users.example.json` file containing the same
@@ -478,7 +478,7 @@ helper reads the target URL from the `JARVIK_URL` environment variable or from a
 `devlab_config.json` file containing a `url` field.
 
 ```bash
-JARVIK_URL=http://example.com:8000 python -m tools.test_endpoint -m "ping"
+JARVIK_URL=http://example.com:8000 python3 -m tools.test_endpoint -m "ping"
 ```
 
 Example `devlab_config.json`:
@@ -490,7 +490,7 @@ Example `devlab_config.json`:
 With this file present you can simply run:
 
 ```bash
-python -m tools.test_endpoint --log flask.log
+python3 -m tools.test_endpoint --log flask.log
 ```
 
 The script prints the HTTP response and, when `--log` is given, shows the last

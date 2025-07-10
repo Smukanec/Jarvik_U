@@ -29,7 +29,7 @@ fi
 # Create personal memory logs for users defined in users.json
 if [ -f users.json ]; then
   echo "📄 Vytvářím osobní paměti pro uživatele..."
-  python - <<'PY'
+  python3 - <<'PY'
 import json, os
 with open('users.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
@@ -46,7 +46,7 @@ fi
 # Vytvoření virtuálního prostředí (pokud není)
 if [ ! -d venv ]; then
   echo "🧪 Vytvářím virtuální prostředí venv/..."
-  python -m venv venv
+  python3 -m venv venv
 fi
 
 # Aktivace venv a instalace požadavků

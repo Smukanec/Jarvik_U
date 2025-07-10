@@ -18,12 +18,12 @@ knowledge/
   vzdelavani/           # Education
 ```
 
-Only plain text files (`.txt`) are loaded. Convert any PDFs or DOCX documents before adding them here. Use `python convert_to_txt.py` from the repository root. The script relies on `pdfplumber` and `python-docx`, so install them manually if they are not present.
+Only plain text files (`.txt`) are loaded. Convert any PDFs or DOCX documents before adding them here. Use `python3 convert_to_txt.py` from the repository root. The script relies on `pdfplumber` and `python-docx`, so install them manually if they are not present.
 
 Recommended workflow for new material:
 
 1. Place PDFs or DOCX files in the `knowledge/` folder.
-2. Run `python convert_to_txt.py` to create text versions in `knowledge_txt/`.
+2. Run `python3 convert_to_txt.py` to create text versions in `knowledge_txt/`.
 3. Move the generated `.txt` files into the appropriate subfolder listed above.
 4. After verifying the text files, delete the original PDF/DOCX sources.
 
