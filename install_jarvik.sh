@@ -3,6 +3,16 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DIR" || exit
 set -e
 
+# Determine Python interpreter
+if command -v python3 >/dev/null 2>&1; then
+  PYTHON=python3
+elif command -v python >/dev/null 2>&1; then
+  PYTHON=python
+else
+  echo "❌ Python3 není nainstalován. Prosím doinstalujte Python 3." >&2
+  exit 1
+fi
+
 # Update DevLab submodule if possible
 if command -v git >/dev/null 2>&1 && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   echo "🔄 Stahuji DevLab submodul..."
@@ -29,7 +39,7 @@ fi
 # Create personal memory logs for users defined in users.json
 if [ -f users.json ]; then
   echo "📄 Vytvářím osobní paměti pro uživatele..."
-  python3 - <<'PY'
+  "$PYTHON" - <<'PY'
 import json, os
 with open('users.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
@@ -46,7 +56,7 @@ fi
 # Vytvoření virtuálního prostředí (pokud není)
 if [ ! -d venv ]; then
   echo "🧪 Vytvářím virtuální prostředí venv/..."
-  python3 -m venv venv
+  "$PYTHON" -m venv venv
 fi
 
 # Aktivace venv a instalace požadavků
