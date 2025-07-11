@@ -6,8 +6,10 @@ set -e
 # Determine Python interpreter
 if command -v python3 >/dev/null 2>&1; then
   PYTHON=python3
+elif command -v python >/dev/null 2>&1; then
+  PYTHON=python
 else
-  echo "❌ Python3 není nainstalován. Prosím doinstalujte Python 3." >&2
+  echo "❌ Python interpret nebyl nalezen. Nainstalujte prosím Python 3." >&2
   exit 1
 fi
 
@@ -54,7 +56,7 @@ fi
 # Vytvoření virtuálního prostředí (pokud není)
 if [ ! -d venv ]; then
   echo "🧪 Vytvářím virtuální prostředí venv/..."
-  python3 -m venv venv
+  "$PYTHON" -m venv venv
 fi
 
 # Aktivace venv a instalace požadavků
