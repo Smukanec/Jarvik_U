@@ -2,7 +2,7 @@
 
 ## 0. Stručný scénář
 
-1. Notebook (Ubuntu 24.04) s Jarvikem běží na `localhost:8000`.
+1. Notebook (Ubuntu 25.04) s Jarvikem běží na `localhost:8000`.
 2. Caddy reverse‑proxy poslouchá na 80/443 a přepojuje na Jarvik.
 3. Veřejná **pouze** IPv6 `2a00:1028:c000:16fe:a782:9e10:5d65:3569` (žádná IPv4).
 4. Doména `jarvik-ai.tech` (registr Webglobe) → později delegovaná na Cloudflare.
@@ -108,7 +108,7 @@ curl -4 -I https://jarvik-ai.tech           # 200 po CF, timeout předtím
 
 ---
 
-## 5. Lokální DNS & cache (Ubuntu 24.04 Wi‑Fi)
+## 5. Lokální DNS & cache (Ubuntu 25.04 Wi‑Fi)
 
 ```bash
 # aktivní profil zjistíš
@@ -128,7 +128,7 @@ sudo resolvectl flush-caches
 **Časté chyby**
 
 * `communications error to 8.8.8.8#53` → router blokuje IPv4 DNS → používej IPv6 resolver.
-* Příkaz `systemd-resolve --flush-caches` neexistuje → na 24.04 je `resolvectl`.
+* Příkaz `systemd-resolve --flush-caches` neexistuje → na 25.04 je `resolvectl`.
 
 ---
 
