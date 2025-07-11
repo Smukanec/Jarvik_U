@@ -295,6 +295,21 @@ def test_ask_file_save_creates_file(client):
     assert "attachments" not in entry
 
 
+def test_answer_download_path_traversal(client):
+    # create a saved answer file
+    res = client.post(
+        "/ask_file",
+        data={"message": "path", "save": "1"},
+        headers=_auth(),
+    )
+    assert res.status_code == 200
+    fname = res.get_json()["download_url"].split("/")[-1]
+
+    # path traversal attempt should return 404
+    res = client.get(f"/answers/../{fname}", headers=_auth())
+    assert res.status_code == 404
+
+
 def test_per_user_knowledge_folders(client):
     import main
     client.get("/knowledge/search", query_string={"q": "hello"}, headers=_auth())
