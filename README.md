@@ -301,6 +301,22 @@ skript `switch_model.sh` se jménem požadovaného modelu:
 bash switch_model.sh mistral:7b-Q4_K_M
 ```
 
+### Cleaning temporary files
+
+Python may create `__pycache__` folders and `.pyc` files during normal
+execution. Remove these artifacts with the helper script:
+
+```bash
+bash clean_temp.sh
+```
+
+The script simply runs commands such as:
+
+```bash
+find . -name '__pycache__' -type d -exec rm -r {} +
+find . -name '*.pyc' -delete
+```
+
 ## Quick Start Script
 
 For a single command that activates the environment, loads the model and
