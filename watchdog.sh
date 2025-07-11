@@ -7,6 +7,7 @@ MODEL_LOG="${MODEL_NAME//:/_}.log"
 GREEN="\033[1;32m"
 RED="\033[1;31m"
 NC="\033[0m"
+PYTHON=python3
 
 echo -e "${GREEN}🔧 Watchdog spuštěn. Kontroluji služby každých 5 sekund.${NC}"
 
@@ -65,7 +66,7 @@ check_flask() {
       echo -e "${RED}❌ Chybí virtuální prostředí venv/.${NC}"
       return
     fi
-    nohup python3 main.py > flask.log 2>&1 &
+    nohup "$PYTHON" main.py > flask.log 2>&1 &
   fi
 }
 
