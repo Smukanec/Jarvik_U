@@ -149,7 +149,7 @@ skript nebo příkaz ručně:
 # Skript automaticky ukončí předchozí Flask
 bash start_flask.sh
 # nebo ručně
-source venv/bin/activate && python main.py
+source venv/bin/activate && python3 main.py
 ```
 
 Po načtení aliasů stačí příkaz:

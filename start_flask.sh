@@ -43,7 +43,7 @@ fi
 
 # Spuštění Flasku
 # Např. FLASK_DEBUG=false bash start_flask.sh vypne debug mód
-python main.py > "$FLASK_LOG" 2>&1 &
+python3 main.py > "$FLASK_LOG" 2>&1 &
 FLASK_PID=$!
 echo $FLASK_PID > "$PID_FILE"
 wait $FLASK_PID

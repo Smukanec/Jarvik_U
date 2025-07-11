@@ -65,7 +65,7 @@ check_flask() {
       echo -e "${RED}❌ Chybí virtuální prostředí venv/.${NC}"
       return
     fi
-    nohup python main.py > flask.log 2>&1 &
+    nohup python3 main.py > flask.log 2>&1 &
   fi
 }
 
