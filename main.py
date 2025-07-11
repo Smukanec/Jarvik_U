@@ -159,8 +159,17 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # --- App logging setup ----------------------------------------------------
-MAX_LOG_BYTES = int(os.getenv("MAX_LOG_BYTES", str(1024 * 1024)))
-LOG_BACKUPS = int(os.getenv("LOG_BACKUPS", "3"))
+_max_log_env = os.getenv("MAX_LOG_BYTES", str(1024 * 1024))
+try:
+    MAX_LOG_BYTES = int(_max_log_env)
+except ValueError:
+    MAX_LOG_BYTES = 1024 * 1024
+
+_log_backups_env = os.getenv("LOG_BACKUPS", "3")
+try:
+    LOG_BACKUPS = int(_log_backups_env)
+except ValueError:
+    LOG_BACKUPS = 3
 APP_LOG_PATH = os.path.join(BASE_DIR, "jarvik.log")
 _app_handler = RotatingFileHandler(
     APP_LOG_PATH,
@@ -182,8 +191,17 @@ if not any(
 
 # --- Prompt logging setup -------------------------------------------------
 # Limit prompt log size and enable rotation
-MAX_PROMPT_LOG_BYTES = int(os.getenv("MAX_PROMPT_LOG_BYTES", str(1024 * 1024)))
-PROMPT_LOG_BACKUPS = int(os.getenv("PROMPT_LOG_BACKUPS", "3"))
+_max_prompt_env = os.getenv("MAX_PROMPT_LOG_BYTES", str(1024 * 1024))
+try:
+    MAX_PROMPT_LOG_BYTES = int(_max_prompt_env)
+except ValueError:
+    MAX_PROMPT_LOG_BYTES = 1024 * 1024
+
+_prompt_backups_env = os.getenv("PROMPT_LOG_BACKUPS", "3")
+try:
+    PROMPT_LOG_BACKUPS = int(_prompt_backups_env)
+except ValueError:
+    PROMPT_LOG_BACKUPS = 3
 _prompt_log_path = os.path.join(BASE_DIR, "final_prompt.txt")
 _prompt_logger = logging.getLogger("prompt_log")
 _prompt_logger.setLevel(logging.INFO)
@@ -208,7 +226,11 @@ USERS_FILE = os.path.join(BASE_DIR, "users.json")
 users = load_users(USERS_FILE)
 AUTH_ENABLED = bool(users)
 
-TOKEN_LIFETIME_DAYS = int(os.getenv("TOKEN_LIFETIME_DAYS", "7"))
+_token_lifetime_env = os.getenv("TOKEN_LIFETIME_DAYS", "7")
+try:
+    TOKEN_LIFETIME_DAYS = int(_token_lifetime_env)
+except ValueError:
+    TOKEN_LIFETIME_DAYS = 7
 TOKEN_FILE = os.path.join(
     os.getenv("MEMORY_DIR", os.path.join(BASE_DIR, "memory")), "tokens.json"
 )
