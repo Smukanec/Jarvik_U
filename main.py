@@ -897,10 +897,12 @@ def ask_file():
 @require_auth
 def download_answer(filename: str):
     """Serve generated answer files."""
-    path = os.path.join(ANSWER_DIR, filename)
-    if not os.path.exists(path):
+    safe_name = os.path.basename(filename)
+    path = os.path.abspath(os.path.join(ANSWER_DIR, safe_name))
+    base = os.path.abspath(ANSWER_DIR)
+    if os.path.commonpath([path, base]) != base or not os.path.exists(path):
         return jsonify({"error": "not found"}), 404
-    return send_file(path, as_attachment=True, download_name=filename)
+    return send_file(path, as_attachment=True, download_name=safe_name)
 
 @app.route("/memory/add", methods=["POST"])
 @require_auth
