@@ -14,6 +14,8 @@ Výchozí umístění adresářů `memory/` a `knowledge/` lze změnit pomocí p
 
 ## Instalace
 
+Python 3 je nezbytný pro spuštění Jarvika. Ubuntu 25.04 obsahuje Python 3.12.
+
 1. Spusťte instalační skript, který vytvoří virtuální prostředí a nainstaluje závislosti:
    ```bash
    bash install_jarvik.sh

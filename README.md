@@ -21,6 +21,7 @@ environment variable toggles Flask's debug mode and defaults to `true`.
 
 ## Installation
 
+Python 3 is required to run Jarvik. Ubuntu 25.04 already includes Python 3.12.
 Install dependencies and create the virtual environment:
 
 ```bash
