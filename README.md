@@ -19,6 +19,9 @@ Use `REQUEST_TIMEOUT` to control how long network requests wait for a
 response before failing (defaults to `10` seconds). The `FLASK_DEBUG`
 environment variable toggles Flask's debug mode and defaults to `true`.
 
+Invalid values for these environment variables are ignored and the
+documented defaults are used instead.
+
 ## Installation
 
 Python 3 is required to run Jarvik. Ubuntu 25.04 already includes Python 3.12.
@@ -93,7 +96,7 @@ subfolders listed in `users.json` are loaded for that user in addition to the
 public files. Set the `MEMORY_DIR` or `KNOWLEDGE_DIR` environment variables to
 override these default locations.
 
-Authentication tokens persist in `memory/tokens.json` so sessions survive restarts. Tokens expire after seven days by default; set the `TOKEN_LIFETIME_DAYS` environment variable to change this period.
+Authentication tokens persist in `memory/tokens.json` so sessions survive restarts. Tokens expire after seven days by default; set the `TOKEN_LIFETIME_DAYS` environment variable to change this period. Invalid values revert to the default.
 
 The similarity threshold for vector search defaults to `0.7`. You can tweak how
 strictly queries match the knowledge base by setting the `RAG_THRESHOLD`
