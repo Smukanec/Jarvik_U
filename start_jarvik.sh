@@ -20,6 +20,7 @@ MODEL_NAME=${MODEL_NAME:-"openchat"}
 # Log file for the model output
 MODEL_LOG="${MODEL_NAME//:/_}.log"
 # Allow API mode when MODEL_NAME or MODEL_MODE indicate so
+# MODEL_MODE=api works with services such as OpenRouter or OpenAI
 MODEL_MODE=${MODEL_MODE:-"local"}
 if [ "$MODEL_NAME" = "api" ]; then
   MODEL_MODE="api"

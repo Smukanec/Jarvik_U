@@ -68,7 +68,22 @@ Podobné skripty jsou připraveny i pro další modely:
 bash start_llama3_8b.sh      # llama3:8b
 bash start_command_r.sh      # command-r
 bash start_nous_hermes2.sh   # nous-hermes2
-MODEL_NAME=api bash start_jarvik.sh # externí API
+MODEL_MODE=api bash start_jarvik.sh  # externí API
+```
+Pro službu OpenRouter nastavte proměnné například takto:
+
+```bash
+export MODEL_MODE=api
+export API_URL=https://api.openrouter.ai/v1/chat/completions
+export API_MODEL=meta-llama/llama-3-70b-instruct
+export API_KEY=sk-...
+jarvik-start
+```
+
+Návrat k lokálnímu modelu zajistí:
+
+```bash
+bash switch_model.sh llama3:8b
 ```
 Každý z těchto skriptů volá `switch_model.sh`,
 který nejprve zastaví běžící model i Flask a poté

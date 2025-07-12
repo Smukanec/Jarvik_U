@@ -260,6 +260,25 @@ API_KEY=sk-... bash start_jarvik.sh
 The start script skips starting Ollama in this mode. The `/ask` endpoints will
 send requests to `API_URL` using the provided key (or an `X-API-Key` header).
 
+#### Using OpenRouter
+
+`MODEL_MODE=api` also works with third-party services such as OpenRouter. To
+try the LLaMA 3 70B model run:
+
+```bash
+export MODEL_MODE=api
+export API_URL=https://api.openrouter.ai/v1/chat/completions
+export API_MODEL=meta-llama/llama-3-70b-instruct
+export API_KEY=sk-...
+jarvik-start
+```
+
+Return to the local model with:
+
+```bash
+bash switch_model.sh llama3:8b
+```
+
 ## Checking Status
 
 See which services are running using:
