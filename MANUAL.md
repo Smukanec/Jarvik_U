@@ -70,7 +70,11 @@ bash start_command_r.sh      # command-r
 bash start_nous_hermes2.sh   # nous-hermes2
 MODEL_MODE=api bash start_jarvik.sh  # externí API
 ```
-Pro službu OpenRouter nastavte proměnné například takto:
+
+### Using OpenRouter
+
+Proměnná `MODEL_MODE=api` zapne vzdálené API. Pro službu OpenRouter nastavte
+proměnné například takto:
 
 ```bash
 export MODEL_MODE=api

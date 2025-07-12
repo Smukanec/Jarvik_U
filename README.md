@@ -282,8 +282,7 @@ send requests to `API_URL` using the provided key (or an `X-API-Key` header).
 
 #### Using OpenRouter
 
-`MODEL_MODE=api` also works with third-party services such as OpenRouter. To
-try the LLaMA 3 70B model run:
+Set `MODEL_MODE=api` to enable remote API calls. To try OpenRouter's LLaMA  3 70B model run:
 
 ```bash
 export MODEL_MODE=api
