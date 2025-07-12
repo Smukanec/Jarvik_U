@@ -60,8 +60,10 @@ bash load.sh
 
 This will append alias commands such as `jarvik-start`, `jarvik-status`,
 `jarvik-model`, `jarvik-flask`, `jarvik-ollama` and wrappers for the
-available models to your `~/.bashrc` and reload the file. The `jarvik-start`
-alias launches the default OpenChat model.
+available models (`jarvik-start-llama3`, `jarvik-start-70b`,
+`jarvik-start-command-r`, `jarvik-start-nh2`, `jarvik-start-api`) to your
+`~/.bashrc` and reload the file. The `jarvik-start` alias launches the default
+OpenChat model.
 
 ### Wiping old knowledge
 
