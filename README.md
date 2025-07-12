@@ -257,6 +257,15 @@ API_MODEL=gpt-3.5-turbo \
 API_KEY=sk-... bash start_jarvik.sh
 ```
 
+To use OpenRouter as a remote fallback for the LLaMA 3 70B model run:
+
+```bash
+MODEL_MODE=api \
+API_URL=https://api.openrouter.ai/v1/chat/completions \
+API_MODEL=meta-llama/llama-3-70b-instruct \
+API_KEY=sk-... bash start_jarvik.sh
+```
+
 The start script skips starting Ollama in this mode. The `/ask` endpoints will
 send requests to `API_URL` using the provided key (or an `X-API-Key` header).
 
