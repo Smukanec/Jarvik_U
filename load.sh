@@ -19,6 +19,10 @@ alias jarvik-start-command-r='bash $DIR/start_command_r.sh'
 alias jarvik-start-api='MODEL_NAME=api bash $DIR/start_jarvik.sh'
 
 EOF
+else
+  if ! grep -q "alias jarvik-start-70b=" ~/.bashrc; then
+    echo "alias jarvik-start-70b='bash $DIR/start_llama3_70b.sh'" >> ~/.bashrc
+  fi
 fi
 
 # Načtení změn

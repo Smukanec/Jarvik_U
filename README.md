@@ -154,6 +154,8 @@ bash start_llama3_8b.sh
 
 # LLaMA 3 70B via API
 API_KEY=sk-... bash start_llama3_70b.sh  # requires your OpenRouter key
+# or using the alias
+jarvik-start-70b
 
 # Command R model
 bash start_command_r.sh
