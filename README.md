@@ -262,7 +262,7 @@ API_MODEL=gpt-3.5-turbo \
 API_KEY=sk-... bash start_jarvik.sh
 ```
 
-To use OpenRouter as a remote fallback for the LLaMA 3 70B model run:
+For the LLaMA 3\u00a070B model you can use OpenRouter as a remote fallback:
 
 ```bash
 MODEL_MODE=api \
