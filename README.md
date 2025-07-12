@@ -64,6 +64,8 @@ available models (`jarvik-start-llama3`, `jarvik-start-70b`,
 `jarvik-start-command-r`, `jarvik-start-nh2`, `jarvik-start-api`) to your
 `~/.bashrc` and reload the file. The `jarvik-start` alias launches the default
 OpenChat model.
+The `jarvik-start-70b` alias relies on the OpenRouter API, so make sure to set
+`API_KEY` with your personal key before using it.
 
 ### Wiping old knowledge
 
@@ -151,7 +153,7 @@ jarvik-start
 bash start_llama3_8b.sh
 
 # LLaMA 3 70B via API
-API_KEY=sk-... bash start_llama3_70b.sh
+API_KEY=sk-... bash start_llama3_70b.sh  # requires your OpenRouter key
 
 # Command R model
 bash start_command_r.sh
@@ -274,7 +276,7 @@ API_KEY=sk-... bash start_jarvik.sh
 Alternatively run the wrapper script with your API key:
 
 ```bash
-API_KEY=sk-... bash start_llama3_70b.sh
+API_KEY=sk-... bash start_llama3_70b.sh  # requires your OpenRouter key
 ```
 
 The start script skips starting Ollama in this mode. The `/ask` endpoints will
