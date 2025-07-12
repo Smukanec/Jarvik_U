@@ -148,6 +148,9 @@ jarvik-start
 # LLaMA 3 8B model
 bash start_llama3_8b.sh
 
+# LLaMA 3 70B via API
+API_KEY=sk-... bash start_llama3_70b.sh
+
 # Command R model
 bash start_command_r.sh
 
@@ -264,6 +267,12 @@ MODEL_MODE=api \
 API_URL=https://api.openrouter.ai/v1/chat/completions \
 API_MODEL=meta-llama/llama-3-70b-instruct \
 API_KEY=sk-... bash start_jarvik.sh
+```
+
+Alternatively run the wrapper script with your API key:
+
+```bash
+API_KEY=sk-... bash start_llama3_70b.sh
 ```
 
 The start script skips starting Ollama in this mode. The `/ask` endpoints will
